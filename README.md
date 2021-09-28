@@ -9,6 +9,7 @@ while aftel != 0:
 print("")
 print("Ready for takeoff")
 ```
+![test](readme/opdracht1nogmaals.png)
 Dit is de aftel opdracht
 ### Tweede opdracht
 ```python
