@@ -120,3 +120,231 @@ else:
   print('done')
 ```
 ## F1.4.02.O2
+``` python
+import random
+print("Raad het getal tussen 1 en 1000") 
+guess = -1 
+ronde = 1 
+point = 0 
+while ronde <= 20: 
+    print("Ronde " + str(ronde))
+    number = random.randint(1,1000)
+    kans = 1  
+    while number != guess:
+        guess = int(input(str(kans) + ": "))
+        if guess < number:
+            print("Hoger")
+            if (number - guess) <= 20:
+                print("Je bent heel warm")
+            elif (number - guess) <= 50:
+                print("Je bent warm")
+        elif guess > number:
+            print("Lager")
+            if (guess - number) <= 20: 
+                print("Je bent heel warm")
+            elif (guess - number) <= 50:
+                print("Je bent warm")
+        else: 
+            print("Correct")
+            point = point + 1
+        kans = kans + 1
+        if kans > 10:
+            break
+    print("Het getal was " + str(number))
+    if ronde >= 20:
+        break  
+    print("Points: " + str(point))
+    print("Nog een getal raden? Ja/Nee")
+    antwoord = input("")
+    if not (antwoord == "Ja" or antwoord == "ja"):
+        break
+    ronde = ronde + 1
+print("Einde!")
+print("Uw eindscore is " + str(point))
+```
+## F1.4.02.O3
+### Oefening 7
+``` python
+from RobotArm import RobotArm
+
+robotArm = RobotArm('exercise 7')
+robotArm.speed = 5
+
+# Jouw python instructies zet je vanaf hier:
+for movements in range(5):        
+    for move in range(6):
+        robotArm.moveRight();
+        robotArm.grab()
+        robotArm.moveLeft()
+        robotArm.drop()
+    robotArm.moveRight();
+    robotArm.moveRight();
+
+    
+
+
+
+
+# Na jouw code wachten tot het sluiten van de window:
+robotArm.wait()
+```
+### Oefening 8
+``` python 
+from RobotArm import RobotArm
+
+robotArm = RobotArm('exercise 8')
+robotArm.speed = 5
+
+
+# Jouw python instructies zet je vanaf hier:
+robotArm.moveRight();
+for move in range(7):
+    robotArm.grab()
+    for right in range(8):
+        robotArm.moveRight();
+    robotArm.drop()
+    for left in range(8):
+        robotArm.moveLeft()
+    
+    
+
+
+
+
+
+# Na jouw code wachten tot het sluiten van de window:
+robotArm.wait()
+```
+### Oefening 9 
+``` python 
+from RobotArm import RobotArm
+
+robotArm = RobotArm('exercise 9')
+robotArm.speed = 5
+
+# Jouw python instructies zet je vanaf hier:
+for column in range(1,5):
+    for count in range(column):
+        robotArm.grab()
+        for blok in range(5):
+            robotArm.moveRight()
+        robotArm.drop()
+        for blok in range(5):
+            robotArm.moveLeft()
+    robotArm.moveRight()
+
+
+# Na jouw code wachten tot het sluiten van de window:
+robotArm.wait()
+```
+### Oefening 10
+``` python
+from RobotArm import RobotArm
+
+robotArm = RobotArm('exercise 10')
+robotArm.speed = 3
+
+
+# Jouw python instructies zet je vanaf hier:
+for countdown in range(9,0,-2):
+    robotArm.grab()
+    for move in range(countdown):
+        robotArm.moveRight()
+    robotArm.drop()
+    for move in range(countdown-1):
+        robotArm.moveLeft()
+
+
+
+
+# Na jouw code wachten tot het sluiten van de window:
+robotArm.wait()
+```
+### Oefening 11
+``` python 
+from RobotArm import RobotArm
+
+robotArm = RobotArm('exercise 11')
+robotArm.speed = 5
+
+# Jouw python instructies zet je vanaf hier:
+for move in range(8):
+    robotArm.moveRight()    
+for colorscan in range(9):
+    robotArm.grab()
+    color = robotArm.scan()
+    if color == "white":
+        robotArm.moveRight()
+        robotArm.drop()
+        robotArm.moveLeft()
+    else:
+        robotArm.drop()
+    robotArm.moveLeft()
+
+    
+        
+    
+    
+
+
+    
+
+
+# Na jouw code wachten tot het sluiten van de window:
+robotArm.wait()
+```
+### Oefening 12
+``` python
+from RobotArm import RobotArm
+
+robotArm = RobotArm('exercise 12')
+robotArm.speed = 5
+
+# Jouw python instructies zet je vanaf hier:
+for movement in range(9,0,-1):
+    robotArm.grab()
+    color = robotArm.scan()
+    if color == "red":
+        for rights in range(movement):        
+            robotArm.moveRight()
+        robotArm.drop()
+        for lefts in range(movement):
+            robotArm.moveLeft()
+    else:
+        robotArm.drop()
+    robotArm.moveRight()
+        
+                
+        
+
+
+# Na jouw code wachten tot het sluiten van de window:
+robotArm.wait()
+```
+### Oefening 13
+``` python
+from RobotArm import RobotArm
+# Let op: hier start het anders voor een random level:
+robotArm = RobotArm()
+robotArm.randomLevel(1,7)
+robotArm.speed = 5
+
+# Jouw python instructies zet je vanaf hier:
+robotArm.grab()
+a = 1
+while robotArm.scan() != "":
+    for i in range(a):
+        robotArm.moveRight()
+    robotArm.drop()    
+    for i in range(a):
+        robotArm.moveLeft()
+    robotArm.grab()
+    a = a + 1
+
+
+            
+
+
+# Na jouw code wachten tot het sluiten van de window:
+robotArm.wait()
+```
